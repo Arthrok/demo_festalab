@@ -1,0 +1,13 @@
+<div class="col-md-3 mx-auto card mt-4" style="background-color: #f8f9fa">
+  <div class="card-body" >
+    <h1 class="text-center">New user</h1>
+
+    <%= render "form", user: @user %>
+
+    <br>
+
+    <div>
+      <%= link_to "Back to users", users_path %>
+    </div>
+  </div>
+</div>

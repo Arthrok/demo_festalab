@@ -1,0 +1,14 @@
+<div class="col-md-2 mx-auto card mt-4" style="background-color: #f8f9fa">
+  <div class="card-body" >
+    <p style="color: green"><%= notice %></p>
+
+    <%= render @user %>
+
+    <div>
+      <%= link_to "Edit this user", edit_user_path(@user) %> |
+      <%= link_to "Back to users", users_path %>
+
+      <%= button_to "Destroy this user", @user, method: :delete, class: "btn btn-danger mt-4" %>
+    </div>
+  </div>
+</div>

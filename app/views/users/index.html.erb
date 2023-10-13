@@ -1,0 +1,46 @@
+
+<div class="col-md-10 mx-auto">
+
+<p style="color: green"><%= notice %></p>
+
+<h1 class="text-center">Users</h1>
+
+<%= form_with(url: users_path, method: "get") do %>
+  <div class="input-group mt-4" style="max-width: 600px; margin: 0 auto;">
+    <span class="input-group-text" id="addon-wrapping">🔎</span>
+    <%= text_field_tag :q, params[:q], placeholder: "name, email, phone or CPF", class: "form-control" %>
+    <button type="submit" class="btn btn-primary">Search</button>
+    <%= submit_tag "Clear", id: "clear-input", class: "btn btn-secondary", style: "width: 10%"%>
+  </div>
+<% end %>
+
+
+<div id="users" class="row mt-4">
+  <% @users.each do |user| %>
+    <div class="col-md-3 col-sm-6 col-12">
+      <div class="card mb-4" style="background-color: #f8f9fa">
+        <div class="card-body">
+          <%= render user %>
+          <p>
+            <%= link_to "Show this user", user %>
+          </p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<%= link_to "New user", new_user_path %>
+
+</div>
+
+
+<script>
+  var limparInputButton = document.getElementById('clear-input')
+  limparInputButton.addEventListener('click', function() {
+    var inputField = document.querySelector('input[name="q"]')
+    inputField.value = ''
+  })
+</script>
